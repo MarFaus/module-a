@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 08 - CSS Grid Areas</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #1e293b;
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                "a1 a1 a2 a3"
+                "a1 a1 a6 a6"
+                "a4 a5 a6 a6";
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 6px;
+            background-color: #93c5fd;
+            padding: 8px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 550px;
+            aspect-ratio: 4 / 3.5;
+        }
+
+        .grid-item {
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #64748b;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .area-1 { grid-area: a1; }
+        .area-2 { grid-area: a2; }
+        .area-3 { grid-area: a3; }
+        .area-4 { grid-area: a4; }
+        .area-5 { grid-area: a5; }
+        .area-6 { grid-area: a6; }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item area-1"><img src="images/ani01.png" alt="Demon Slayer"></div>
+        <div class="grid-item area-2"><img src="images/ani02.png" alt="Attack on Titan"></div>
+        <div class="grid-item area-3"><img src="images/ani03.png" alt="Samurai X"></div>
+        <div class="grid-item area-4"><img src="images/ani05.png" alt="Solo Leveling"></div>
+        <div class="grid-item area-5"><img src="images/ani06.png" alt="Slam Dunk"></div>
+        <div class="grid-item area-6"><img src="images/ani04.png" alt="Jujutsu Kaisen"></div>
+    </div>
+</body>
+</html>
