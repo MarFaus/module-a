@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3 - HTML/CSS Grid Layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8fafc;
+        }
+
+        .grid-container {
+            display: grid;
+            width: 100%;
+            max-width: 750px;
+            gap: 12px;
+            /* Сетка для больших экранов */
+            grid-template-areas:
+                "a a a"
+                "b b e"
+                "c d e";
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 90px 160px 90px;
+        }
+
+        .box {
+            background-color: #ffffff;
+            border: 2px solid #1e293b;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        .box-a { grid-area: a; }
+        .box-b { grid-area: b; }
+        .box-c { grid-area: c; }
+        .box-d { grid-area: d; }
+        .box-e { grid-area: e; }
+
+        /* Точка останова (breakpoint) 768px для мобильных устройств */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-areas:
+                    "a a"
+                    "b b"
+                    "c d"
+                    "e e";
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 70px 120px 70px 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="box box-a">A</div>
+        <div class="box box-b">B</div>
+        <div class="box box-c">C</div>
+        <div class="box box-d">D</div>
+        <div class="box box-e">E</div>
+    </div>
+</body>
+</html>
