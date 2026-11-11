@@ -1,0 +1,82 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.counter-wrapper {
+    counter-reset: sum 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.boxes {
+    display: flex;
+    gap: 15px;
+}
+
+/* Скрываем чекбокс через opacity/absolute, чтобы counter-increment продолжал работать */
+.box-check {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.box-label {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    background-color: #fff;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.box-label:hover {
+    border-color: #999;
+}
+
+.box-check:checked + .box-label {
+    background-color: #ffd700;
+    border-color: #d4af37;
+    color: #000;
+}
+
+/* Инкремент счетчиков при выделении */
+#num1:checked { counter-increment: sum 10; }
+#num2:checked { counter-increment: sum 32; }
+#num3:checked { counter-increment: sum 64; }
+#num4:checked { counter-increment: sum -15; }
+
+.result {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.total::after {
+    content: counter(sum);
+}
