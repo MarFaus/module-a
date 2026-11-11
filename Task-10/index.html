@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 10 - CSS Steps Animation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #334155;
+        }
+
+        /* Контейнер кадра (один человечек) */
+        .steps {
+            width: 80px;
+            height: 80px;
+            /* Путь к настоящему sprite.png в папке images или рядом */
+            background-image: url('images/sprite.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            /* 400% означает, что спрайт состоит из 4 кадров одинаковой ширины */
+            background-size: 400% 100%;
+            image-rendering: pixelated; /* Сохраняет четкость пикселей */
+            animation: walkAnimation 0.8s steps(4) infinite;
+        }
+
+        @keyframes walkAnimation {
+            from {
+                background-position: 0% 0;
+            }
+            to {
+                background-position: 133.333% 0; /* Прокрутка всех 4 кадров */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="steps"></div>
+</body>
+</html>
