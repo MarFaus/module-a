@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 7 - Digital Clock</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #222; color: #00ffcc; font-family: monospace; }
+        .clock { font-size: 4rem; padding: 20px 40px; border: 3px solid #00ffcc; border-radius: 12px; box-shadow: 0 0 20px rgba(0,255,204,0.3); }
+    </style>
+</head>
+<body>
+    <div class="clock" id="clock">00:00:00</div>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
